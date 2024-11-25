@@ -5,6 +5,11 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [member, setMember] = useState([]);
 
+  function handleRemove(id) {
+    const filterMember = member.filter((m) => m.id !== id);
+    setMember(filterMember);
+  }
+
   function handleSubmit(e) {
     if (!name || !email) return;
     // we use it to can receive value when we use form for submit
@@ -51,10 +56,11 @@ const App = () => {
         </button>
       </form>
       <ul>
-        {member.map((m) => (
-          <li key={m.id}>
-            <h3>{m.name}</h3>
-            <h3>{m.email}</h3>
+        {member.map(({ id, name, email }) => (
+          <li key={id}>
+            <h3>{name}</h3>
+            <h3>{email}</h3>
+            <button onClick={() => handleRemove(id)}>Remove</button>
           </li>
         ))}
       </ul>

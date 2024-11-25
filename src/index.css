@@ -76,6 +76,10 @@ li {
   gap: 2rem;
   align-items: center;
   list-style-type: none;
+  background: #a2b2cd;
+  border-radius: 10px;
+  padding: 5px;
+  justify-content: space-between;
 }
 h3 {
   font-size: 2.5rem;
