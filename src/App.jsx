@@ -9,9 +9,12 @@ const App = () => {
     // we use it to can receive value when we use form for submit
     e.preventDefault();
 
+    // Create fakeId
+    const id = Date.now();
+
     // Create new obj to store member
     // const addMember = {name: name, email: email} but in ES6 we can write in short like below
-    const addMember = { name, email };
+    const addMember = { id, name, email };
     // const updateMember = [addMember] if we write in this way it means that it will overwrite when we add new member
     // We can use sprit operator to copy all the member as we know the old one in store in member
     const updateMember = [...member, addMember];
@@ -48,7 +51,7 @@ const App = () => {
       </form>
       <ul>
         {member.map((m) => (
-          <li>
+          <li key={m.id}>
             <h3>{m.name}</h3>
             <h3>{m.email}</h3>
           </li>
