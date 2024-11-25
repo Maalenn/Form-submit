@@ -6,6 +6,7 @@ const App = () => {
   const [member, setMember] = useState([]);
 
   function handleSubmit(e) {
+    if (!name || !email) return;
     // we use it to can receive value when we use form for submit
     e.preventDefault();
 
